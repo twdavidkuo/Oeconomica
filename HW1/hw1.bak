@@ -1,0 +1,30 @@
+#lang typed/racket
+(require typed/test-engine/racket-tests)
+(require "../kuot/kuot/include/cs151-core.rkt")
+
+(: largest-integer (-> Integer Integer Integer Integer))
+;; Return the largest integer out of the three integers
+(define (largest-integer a b c)
+  (cond
+  [(and (>= a b) (>= a c)) a]
+  [(and (>= b a) (>= b c)) b]
+  [(and (>= c a) (>= c b)) c]
+  [else (error "ERROR")]))
+(check-expect (largest-integer 1 2 3) 3)
+(check-expect (largest-integer 5 5 5) 5)
+
+(: smallest-integer (-> Integer Integer Integer Integer))
+;; Return the smallest integer out ofthe three inputs
+(define (smallest-integer a b c)
+  (cond
+  [(and (<= a b) (<= a c)) a]
+  [(and (<= b a) (<= b c)) b]
+  [(and (<= c a) (<= c b)) c]
+  [else (error "ERROR")]))
+
+;(: median-integer (-> Integer Integer Integer Integer))
+;;Return the median among the three integers
+;(define (median-integer a b c)
+
+
+  

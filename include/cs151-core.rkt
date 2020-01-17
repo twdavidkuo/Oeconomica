@@ -252,7 +252,7 @@
 (provide (rename-out [string-append cat]))
 
 (provide (rename-out [number->string num$]))
-(provive (rename-out [symbol->string sym$]))
+(provide (rename-out [symbol->string sym$]))
 
 (provide (rename-out [Number  Num]))
 (provide (rename-out [Integer Int]))

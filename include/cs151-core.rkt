@@ -1,11 +1,11 @@
 #lang typed/racket
 
 (: cs151-core-version : String)
-(define cs151-core-version "A6.1")
+(define cs151-core-version "A6.11")
 (provide cs151-core-version)
 
 (: cs151-core-date : String)
-(define cs151-core-date "January 5, 2020")
+(define cs151-core-date "January 17, 2020")
 (provide cs151-core-date)
 
 (define-syntax cs151-core-define-struct
@@ -250,3 +250,11 @@
 ;; conveniences
 
 (provide (rename-out [string-append cat]))
+
+(provide (rename-out [number->string num$]))
+(provive (rename-out [symbol->string sym$]))
+
+(provide (rename-out [Number  Num]))
+(provide (rename-out [Integer Int]))
+(provide (rename-out [Boolean Bool]))
+(provide (rename-out [Symbol  Sym]))

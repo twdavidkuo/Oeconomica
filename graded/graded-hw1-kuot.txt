@@ -1,0 +1,66 @@
+;; CMSC 15100, Winter 2020
+;; Homework 1 evaluation
+
+;; This evaluation is for the student with cnet kuot.
+
+;; === correctness ===
+
+;; function 1: smallest of 3   9 / 9
+
+;; function 2: largest of 3    9 / 9
+
+;; function 3: middle of 3     9 / 9
+
+;; function 4: Pythag. triple  9 / 9
+
+;; function 5: exclusive or    9 / 9
+
+;; function 6: leap year       7 / 9
+
+==> correctness subtotal 52/54
+
+;; === style ===
+
+;; contracts (type ascriptions)       6 / 6
+;; well-written purposes              6 / 6
+
+;; lines are <= 80 characters long    0 / 1
+;; code layout                        5 / 5
+;; identifiers are well named         5 / 5
+
+;; adequate tests                     9/12
+
+;; clarity (clear logic)              6 / 6
+;; git used correctly                 4 / 5
+
+==> style subtotal 41/46
+
+==> Note: the scoring formula is given here.
+
+The following scoring formula has the effect of scaling style by
+correctness. This is so a student cannot, for example, write only one
+function out of six and earn full style points.
+
+Let c = correctness points.
+Let p = correctness percentage.
+Let s = style points.
+The total score is (c + p*s), rounded to the nearest integer.
+
+For example, if a student earns 40/54 correctness points and 30/46
+style points, the total score is as follows:
+
+round(40+((40/54)*30)/100 = 62/100
+
+***************************************************
+
+;; _total-score_ 91 / 100
+
+;; graded by maxineking
+
+- The top should say (require "../include/cs151-core.rkt"); otherwise it doesn't run
+- As a general rule, make sure that you have tests that cover your whole code; i.e. after you run your tests, every piece of your function has been executed at least once
+- Exclusive or only has 4 possible inputs, so you should have tests for all of them
+- Years divisible by 100 are not leap years unless they're also divisible by 400!
+- Please keep your lines under 80 characters long; for suggestions on how to mitigate this, look at the style guide.
+- All of your function logic is super clear and well thought-through; great job!
+

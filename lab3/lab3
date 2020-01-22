@@ -1,0 +1,123 @@
+#lang typed/racket
+
+(require typed/test-engine/racket-tests)
+(require "../include/cs151-core.rkt")
+(require "../include/cs151-image.rkt")
+
+(define-struct Click
+  ([displacement-horizontal : Integer]
+   [displacement-vertical   : Integer]))
+
+(define-struct VisualStyle
+  ([text-area-width : Integer]
+   [text-area-height : Integer]
+   [spacer-height : Integer]
+   [text-background-color : Image-Color]
+   [spacer-color : Image-Color]))
+
+(define-struct MultipleChoice
+  ([question-text : String]
+   [choice1 : String]
+   [choice2 : String]
+   [choice3 : String]
+   [choice4 : String]
+   [correct-choice : Integer]))
+
+(MultipleChoice "What is the capital city of Ethiopia?"
+                "1.Addis Ababa"
+                "2.Sofia"
+                "3.Neirobi"
+                "4.Lagos"
+                1)
+(VisualStyle 80 20 5 "maroon" "gray")
+
+ 
+(: display-question : VisualStyle MultipleChoice -> Image)
+;; display multiple choice question in the format specified by visual style
+(define (display-question v-style quest)
+  (above (overlay (text (MultipleChoice-question-text quest) 16 "black")
+                  (rectangle (VisualStyle-text-area-width v-style)
+                             (VisualStyle-text-area-height v-style)
+                             "solid"
+                             (VisualStyle-text-background-color v-style)))
+         (rectangle (VisualStyle-text-area-width v-style)
+                    (VisualStyle-spacer-height v-style) "solid"
+                    (VisualStyle-spacer-color v-style))
+         (overlay (text (MultipleChoice-choice1 quest) 16 "black")
+                  (rectangle (VisualStyle-text-area-width v-style)
+                             (VisualStyle-text-area-height v-style)
+                             "solid"
+                             (VisualStyle-text-background-color v-style)))
+         (rectangle (VisualStyle-text-area-width v-style)
+                    (VisualStyle-spacer-height v-style) "solid"
+                    (VisualStyle-spacer-color v-style))
+         (overlay (text (MultipleChoice-choice2 quest) 16 "black")
+                  (rectangle (VisualStyle-text-area-width v-style)
+                             (VisualStyle-text-area-height v-style)
+                             "solid"
+                             (VisualStyle-text-background-color v-style)))
+         (rectangle (VisualStyle-text-area-width v-style)
+                    (VisualStyle-spacer-height v-style) "solid"
+                    (VisualStyle-spacer-color v-style))
+         (overlay (text (MultipleChoice-choice3 quest) 16 "black")
+                  (rectangle (VisualStyle-text-area-width v-style)
+                             (VisualStyle-text-area-height v-style)
+                             "solid"
+                             (VisualStyle-text-background-color v-style)))
+         (rectangle (VisualStyle-text-area-width v-style)
+                    (VisualStyle-spacer-height v-style) "solid"
+                    (VisualStyle-spacer-color v-style))
+         (overlay (text (MultipleChoice-choice4 quest) 16 "black")
+                  (rectangle (VisualStyle-text-area-width v-style)
+                             (VisualStyle-text-area-height v-style)
+                             "solid" (VisualStyle-text-background-color v-style)))))
+
+(display-question (VisualStyle 250 40 10 "maroon" "gray")
+                  (MultipleChoice "What is the capital city of Ethiopia?"
+                                  "1.Addis Ababa"
+                                  "2.Sofia"
+                                  "3.Neirobi"
+                                  "4.Lagos"
+                                  1))
+(: choice-clicked : VisualStyle Click -> Integer)
+;; display the reaction upon the user's click on options
+(define (choice-clicked vs c)
+  (local
+    {(define x(Click-displacement-horizontal c))
+     (define y(Click-displacement-vertical c))}
+    (cond
+      [(and (> x 0) (< x (VisualStyle-text-area-width vs)))
+       (cond
+         [(and (> y (+ (VisualStyle-text-area-height vs)
+                       (VisualStyle-spacer-height vs)))
+               (< y (+ (* 2 (VisualStyle-text-area-height vs))
+                       (VisualStyle-spacer-height vs)))) 1]
+         [(and (> y (+ (* 2 (VisualStyle-text-area-height vs))
+                       (* 2 (VisualStyle-spacer-height vs))))
+               (< y (+ (* 3 (VisualStyle-text-area-height vs))
+                       (* 2 (VisualStyle-spacer-height vs))))) 2]
+         [(and (> y (+ (* 3 (VisualStyle-text-area-height vs))
+                       (* 3 (VisualStyle-spacer-height vs))))
+               (< y (+ (* 4 (VisualStyle-text-area-height vs))
+                       (* 3 (VisualStyle-spacer-height vs))))) 3]
+         [(and (> y (+ (* 4 (VisualStyle-text-area-height vs))
+                       (* 4 (VisualStyle-spacer-height vs))))
+               (< y (+ (* 5 (VisualStyle-text-area-height vs))
+                       (* 4 (VisualStyle-spacer-height vs))))) 4]
+         [else 0])]
+      [else 0])))
+
+(check-expect (choice-clicked (VisualStyle 80 20 5 "maroon" "gray")
+                              (Click 800 20)) 0)
+(check-expect (choice-clicked (VisualStyle 80 20 5 "maroon" "gray")
+                              (Click 60 40)) 1)
+
+(test)
+      
+      
+       
+       
+           
+         
+
+

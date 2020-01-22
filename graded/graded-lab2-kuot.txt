@@ -1,0 +1,59 @@
+;; CMSC 15100, Winter 2020
+;; Lab 2 evaluation
+
+;; This evaluation is for the student with cnet kuot.
+
+;; === correctness ===
+
+;; plausible?          3 / 3
+;; adjusted-income     3 / 3
+;; income-tax          5 / 5
+
+;; child-deduction     3 / 3
+;; dog-deduction       2 / 3
+;;GRADER: The dog deduction shouldn't have a maximum value (if it's greater than the income tax, then that should be accounted for in tax-owed).
+
+;; tax-owed            3 / 3
+;; effective-tax-rate  3 / 3
+
+==> correctness subtotal 22/23
+
+;; === style ===
+
+;; contracts (type ascriptions)        3 / 3
+;; well-written purposes               3 / 3
+
+;; lines are <= 80 characters long     1 / 1
+;; code layout                         3 / 3
+;; identifiers are well named          3 / 3
+
+;; adequate tests                      8 / 8
+
+;; clarity (clear logic)               5 / 5
+;; git used correctly                  1 / 1
+
+==> style subtotal 27/27
+
+==> Note: the scoring formula is given here.
+
+The following scoring formula has the effect of scaling style by
+correctness. This is so a student cannot, for example, write only one
+function out of six and earn full style points.
+
+Let c = correctness points.
+Let p = correctness percentage.
+Let s = style points.
+The total score is (c + p*s), rounded to the nearest integer.
+
+For example, if a student earned 20/23 correctness points and 22/27
+style points, the total score would be as follows:
+
+round(20+((20/23)*22)/100 = 39/50
+
+***************************************************
+
+;; _total-score_  48 / 50
+;;GRADER: Great work!
+
+;; graded by Anne Farrell
+

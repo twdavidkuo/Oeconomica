@@ -1,0 +1,12 @@
+#lang typed/racket
+
+(require typed/test-engine/racket-tests)
+(require "../include/cs151-core.rkt")
+(require "../include/cs151-image.rkt")
+
+(: scale-down-power-2 : Image -> Image)
+;; scale down the size of image to the closest power of 2
+(define (scale-down-power-2 img)
+  (cond
+    [(Integer (log (image-width img) 2)) img]
+    [else ((scale 0.999 (scale-down-power-2 img)))])) 

@@ -1,7 +1,7 @@
 #lang typed/racket
 
 (: cs151-core-version : String)
-(define cs151-core-version "A6.11")
+(define cs151-core-version "A6.12")
 (provide cs151-core-version)
 
 (: cs151-core-date : String)
@@ -86,6 +86,17 @@
 (provide (rename-out [cs151-core-sqrt sqrt]))
 
 (provide (rename-out [sqrt full-sqrt]))
+
+(: cs151-core-log : Real -> Real)
+(define (cs151-core-log x)
+  (if (positive? x)
+      (log x)
+      (error
+       (string-append "log expects a positive real; given "
+                      (number->string x)))))
+(provide (rename-out [cs151-core-log log]))
+
+(provide (rename-out [log full-log]))
 
 ;; forbidden builtin functions
 ;;

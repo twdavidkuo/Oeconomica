@@ -1,0 +1,78 @@
+;; CMSC 15100, Winter 2020
+;; Homework 2 evaluation
+
+;; This evaluation is for the student with cnet kuot.
+
+;; === correctness ===
+
+;; point$  4/4
+;; quad$   4/4
+
+;; +x   4/4
+;; +y   4/4
+
+;; distance  4/4
+;; midpoint  4/4
+
+;; inside-unit-circle?  4/4
+;; discriminant         4/4
+
+;; num-real-solutions   4/4
+;; concave-up?          4/4
+
+;; value-at             4/4
+;; vertex               4/4
+
+;; vertical-distance    4/4
+;; lies-on?             4/4
+
+;; intersect?           4/4
+
+==> correctness subtotal 60/60
+
+;; === style ===
+
+;; contracts (type ascriptions)        (given)
+;; well-written purposes               (given)
+
+;; lines are <= 80 characters long    1 / 1
+;; code layout                        6 / 6
+
+;; identifiers are well named         6 / 6
+
+;; adequate tests                     11 /14
+;; Overall, your code was very accurate!
+;; However, think about edge cases you didn't cover with your tests for
+;; distance, vertical-dist, lies on, etc.
+;; 1 - 2 test cases usually aren't enough.
+
+;; clarity (clear logic)              6 / 6
+;; code is well factored as needed    6 / 6 (this barely applies this week, but will in the future)
+
+;; git used correctly                 1 / 1
+
+==> style subtotal 37/40
+
+
+;; _total-score_ 97 / 100
+
+;; graded by layagollapudi
+
+
+***************************************************
+
+==> Note: the scoring formula is given here.
+
+The following scoring formula has the effect of scaling style by
+correctness. This is so a student cannot, for example, write only one
+function out of six and earn full style points.
+
+Let c = correctness points.
+Let p = correctness percentage.
+Let s = style points.
+The total score is (c + p*s), rounded to the nearest integer.
+
+For example, if a student earns 50/60 correctness points and 30/40
+style points, the total score is as follows:
+
+round(50+((50/60)*30)/100 = 75/100

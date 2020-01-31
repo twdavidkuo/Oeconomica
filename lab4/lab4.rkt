@@ -12,36 +12,54 @@
     [else (scale-down-power-2
            (scale (/ (- (image-width img) 1) (image-width img)) img))]))
 
-(check-expect (scale-down-power-2 (square 40 'solid 'red)) (square 32 'solid 'red))
+;(check-expect (scale-down-power-2 (square 40 'solid 'red))
+ ;             (square 32 'solid 'red))
 
 
-(: vanishing : Exact-Rational Image -> Image)
-;; draw vanishing row of images extending to the right
-;; given: scaling factor, image
-;; raise an error if the factor is not strictly between 0 and 1
-;; you can measure the width of an image with built-in "image-width" and 
-;;   the height with built-in "image-height"
-(define (vanishing r img)
+(: thing64 Image)
+(define thing64
+  (overlay/xy (circle 10 'solid 'red)
+	      -40
+	      -10
+	      (square 64 'outline 'black)))
+
+(: vertical : Image -> Image)
+;;define the vertical part of a recursive rectangle
+(define (vertical img)
   (cond
-    [(or (>= r 1) (<= r 0)) (error "scaling factor out of range")]
-    [(< (image-width img) 1) empty-image]
-    [else (beside img (scale r img) (vanishing r (scale (* r r) img)))]))
+    [(< (image-height img) 2) empty-image]
+    [else (above (beside (vertical (scale 1/2 img)) (vertical (scale 1/2 img)))
+                 img)]))
 
-(: duplicate-above : Integer Image -> Image)
-;; given: number of duplicates, image to duplicate above the image
-(define (duplicate-above a img)
-  (cond
-    [(<= a 0) empty-image]
-    [else (above img (duplicate-above (- a 1) img))]))
 
-(: define base : Image -> Image)
+(: L-shape : Image -> Image)
+;;turn the recursive rectangle into a l-shape graph
+(define (L-shape img)
+  (underlay/align 'left 'bottom
+                 (rotate -90 (flip-horizontal (vertical img)))
+                 (vertical img)))
+
+(: base : Image -> Image)
+;;turn the l-shape into a recursive square
 (define (base img)
-  (
+  (cond
+    [(< (image-width img) 2) empty-image]
+    [else (overlay/align/offset 'right 'top
+                         (L-shape img)
+                         (/ 2 (image-width (L-shape img)))
+                         (/ 2 (image-width (L-shape img)))
+                         (base (scale 1/2 img)))]))
+                         
+
+ 
+
 
 (: sicp : Image -> Image)
 ;;performing the sicp algorithm to a given picture
 (define (sicp img)
-  (local {define
+  (above (beside (flip-horizontal (base thing64)) (base thing64))
+         (flip-vertical
+          (beside (flip-horizontal (base thing64)) (base thing64)))))
 
-
+   
 (test)

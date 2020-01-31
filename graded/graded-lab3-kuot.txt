@@ -1,0 +1,63 @@
+;; CMSC 15100, Winter 2020
+;; Lab 3 evaluation
+
+;; This evaluation is for the student with cnet kuot.
+
+;; === correctness ===
+
+;; display-question
+;; - question displayed correctly       / 6
+;; - four choices displayed correctly   / 8
+;; - spaces displayed correctly         / 6
+
+;; choice-clicked / 8
+
+;; (no points for display-question-correct, which was not
+;;  part of the assignment)
+
+==> correctness subtotal /28
+
+;; === style ===
+
+;; contracts (type ascriptions)        / 2
+;; well-written purposes               / 2
+
+;; lines are <= 80 characters long     / 1
+;; code layout                         / 2
+;; identifiers are well named          / 2
+
+;; clarity (clear logic)               / 4
+;; code is well factored               / 5
+;; (organized into subroutines as needed)
+
+;; adequate tests                      / 3
+
+;; git used correctly                  / 1
+
+==> style subtotal /22
+
+
+;; _total-score_  0/50      /* error in loading lab3.rkt
+
+;; graded by Qiming Wang 
+
+
+
+
+***************************************************
+
+==> Note: the scoring formula is given here.
+
+The following scoring formula has the effect of scaling style by
+correctness. This is so a student cannot, for example, write only one
+function out of six and earn full style points.
+
+Let c = correctness points.
+Let p = correctness percentage.
+Let s = style points.
+The total score is (c + p*s), rounded to the nearest integer.
+
+For example, if a student earned 20/28 correctness points and 22/22
+style points, the total score would be as follows:
+
+round(20+((20/28)*22)/50 = 36/50

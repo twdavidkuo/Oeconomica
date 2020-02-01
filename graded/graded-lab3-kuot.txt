@@ -6,38 +6,38 @@
 ;; === correctness ===
 
 ;; display-question
-;; - question displayed correctly       / 6
-;; - four choices displayed correctly   / 8
-;; - spaces displayed correctly         / 6
+;; - question displayed correctly      6 / 6
+;; - four choices displayed correctly  8 / 8
+;; - spaces displayed correctly        6 / 6
 
-;; choice-clicked / 8
+;; choice-clicked 8 / 8
 
 ;; (no points for display-question-correct, which was not
 ;;  part of the assignment)
 
-==> correctness subtotal /28
+==> correctness subtotal 28/28
 
 ;; === style ===
 
-;; contracts (type ascriptions)        / 2
-;; well-written purposes               / 2
+;; contracts (type ascriptions)       2 / 2
+;; well-written purposes              2 / 2
 
-;; lines are <= 80 characters long     / 1
-;; code layout                         / 2
-;; identifiers are well named          / 2
+;; lines are <= 80 characters long    1 / 1
+;; code layout                        2 / 2
+;; identifiers are well named         2 / 2
 
-;; clarity (clear logic)               / 4
-;; code is well factored               / 5
+;; clarity (clear logic)              4 / 4
+;; code is well factored              5 / 5
 ;; (organized into subroutines as needed)
 
-;; adequate tests                      / 3
+;; adequate tests                     3 / 3
 
-;; git used correctly                  / 1
+;; git used correctly                 1 / 1
 
-==> style subtotal /22
+==> style subtotal 22/22
 
 
-;; _total-score_  0/50      /* error in loading lab3.rkt
+;; _total-score_  50/50
 
 ;; graded by Qiming Wang 
 

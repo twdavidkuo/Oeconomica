@@ -1,0 +1,84 @@
+;; CMSC 15100, Winter 2020
+;; Homework 3 evaluation
+
+;; This evaluation is for the student with cnet kuot.
+
+;; === correctness ===
+
+;; sum-upto     4/4
+;; sum-from     4/4
+
+;; product-from 1/4
+;; Failing test cases
+;; (check-expect (product-from 1 3) 6)
+;; (check-expect (product-from 3 1) 6)
+;; (check-expect (product-from -1 -3) -6)
+;; (check-expect (product-from -3 -1) -6)
+;; (check-expect (product-from -1 -2)  2)
+
+;; tower 3/4
+;; two of the edges aren't black (left, top)
+
+;; cc    4/4
+;; cc3   6/6
+
+;; duplicate-beside 4/4
+;; vanishing        6/6
+
+;; divide-tree 4/4
+;; floor-tree  4/4
+;; contains?   6/6
+
+;; leaf?      4/4
+
+;; num-leaves 6/6
+;; node-sum 6/6
+;; leaf-sum 6/6
+
+==> correctness subtotal 68/72
+
+;; === style ===
+
+;; contracts (type ascriptions)       (given)
+;; well-written purposes               3 / 3
+
+;; lines are <= 80 characters long     1 / 1
+;; code layout                         2 / 3
+
+;; Overall good job, but try to be generous with spacing
+;; between modules! Try to always keep the same number
+;; of spaced lines, 2+! Makes reading code easier.
+
+;; identifiers are well named          3 / 3
+
+;; adequate tests                      8 / 8
+
+;; clarity (clear logic)               6 / 6
+;; code is well factored as needed     3 / 3
+
+;; git used correctly                  1 / 1
+
+==> style subtotal 27/28
+
+
+;; _total-score_  94 / 100
+;; graded by layagollapudi
+
+
+***************************************************
+
+==> Note: the scoring formula is given here.
+
+The following scoring formula has the effect of scaling style by
+correctness. This is so a student cannot, for example, write only one
+function out of six and earn full style points.
+
+Let c = correctness points.
+Let p = correctness percentage.
+Let s = style points.
+The total score is (c + p*s), rounded to the nearest integer.
+
+For example, if a student earns 50/72 correctness points and 20/28
+style points, the total score is as follows:
+
+round(50+((50/72)*20))/100 = 64/100
